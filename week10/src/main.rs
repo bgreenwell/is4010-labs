@@ -73,7 +73,7 @@ fn problem_2() {
 // Error: Tries to mutate a value through an immutable reference.
 // Fix: Change both the variable declaration and function signature to use &mut.
 //
-// Learning goal: Know when to use &T vs &mut T.
+// Learning goal: Know when to use &String vs &mut String.
 // ============================================================================
 /*
 fn problem_3() {
