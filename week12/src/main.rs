@@ -1,7 +1,7 @@
 // Week 12: Generics and traits
 //
 // Implement a generic Stack<T> data structure and make it work with Rust's
-// standard Display and Iterator traits.
+// standard Display trait.
 //
 // Run: cargo test
 
@@ -16,7 +16,6 @@ fn main() {
     // s.push(2);
     // s.push(3);
     // println!("{}", s);           // requires Display impl
-    // for item in s { println!("{}", item); }  // requires IntoIterator impl
 }
 
 // ============================================================================
@@ -77,12 +76,6 @@ impl<T: fmt::Debug> fmt::Display for Stack<T> {
         todo!("Implement Display for Stack<T>, hint: write!(f, \"[...]\") using self.data")
     }
 }
-
-// ============================================================================
-// ITERATOR: consume the stack from top to bottom
-//
-// Implement the helper struct and then the two trait impls below.
-// ============================================================================
 
 // ============================================================================
 // TESTS: DO NOT MODIFY
