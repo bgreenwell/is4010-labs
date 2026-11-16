@@ -3,7 +3,6 @@
 // Practice three pillars of idiomatic Rust:
 //   Part 1: iterators and closures
 //   Part 2: error handling with Result
-//   Part 3: smart pointers (Box for recursive types)
 //
 // Run: cargo test
 
@@ -23,6 +22,8 @@ fn main() {
 /// - Words are separated by whitespace.
 /// - `average_word_length` is 0.0 for empty input.
 /// - `longest_word` is an empty String for empty input.
+/// - If several words tie for longest, return the first one. Note that
+///   `.max_by_key()` returns the *last* of several equal maxima.
 ///
 /// Hint: use iterator adaptors (.split_whitespace(), .map(), .max_by_key(), etc.)
 pub fn analyze_text(_text: &str) -> (usize, f64, String) {
@@ -97,7 +98,7 @@ mod tests {
         assert_eq!(count, 3);
         // avg = (5 + 5 + 4) / 3 = 14/3 ≈ 4.666…
         assert!((avg - 14.0 / 3.0).abs() < 1e-9);
-        assert_eq!(longest, "hello"); // or "world", both length 5; either accepted
+        assert_eq!(longest, "hello"); // "hello" and "world" tie at 5; the first one wins
     }
 
     #[test]
