@@ -17,7 +17,7 @@ use generator::{generate_passphrase, generate_pin, generate_random};
 use validator::{calculate_entropy, check_common_patterns, validate_strength};
 
 // ============================================================================
-// CLI DEFINITION: fill in the argument fields marked with todo comments
+// CLI DEFINITION: complete as supplied; do not change these structs
 // ============================================================================
 
 /// A password generator CLI.
@@ -74,24 +74,30 @@ fn main() {
 
     match cli.command {
         Commands::Random { length, symbols } => {
-            // TODO: call generate_random(length, symbols) and print the result
-            // Bonus: also print the entropy using calculate_entropy()
+            // TODO: call generate_random(length, symbols), then print
+            //   Generated password: <password>
+            //   Entropy: <bits> bits      (use calculate_entropy)
             todo!("Handle the `random` subcommand")
         }
 
         Commands::Passphrase { words, separator } => {
-            // TODO: call generate_passphrase(words, separator) and print the result
+            // TODO: call generate_passphrase(words, separator), then print
+            //   Generated passphrase: <passphrase>
             todo!("Handle the `passphrase` subcommand")
         }
 
         Commands::Pin { length } => {
-            // TODO: call generate_pin(length) and print the result
+            // TODO: call generate_pin(length), then print
+            //   Generated PIN: <pin>
             todo!("Handle the `pin` subcommand")
         }
 
         Commands::Validate { password } => {
-            // TODO: call validate_strength(&password) and check_common_patterns(&password)
-            // Print the strength and warn if a common pattern is detected
+            // TODO: print
+            //   Password strength: <strength>   (use validate_strength)
+            //   Entropy: <bits> bits            (use calculate_entropy)
+            // and, if check_common_patterns(&password) is true, a line starting with
+            //   Warning:
             todo!("Handle the `validate` subcommand")
         }
     }

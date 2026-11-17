@@ -27,12 +27,14 @@ When implementing a function, rename parameters by dropping the leading `_`.
 
 **`src/main.rs`**: CLI wiring (the `clap` structs are already defined)
 
-| Match arm | What to do |
-|-----------|-----------|
-| `Commands::Random { length, symbols }` | Call `generate_random`, print result |
-| `Commands::Passphrase { words, separator }` | Call `generate_passphrase`, print result |
-| `Commands::Pin { length }` | Call `generate_pin`, print result |
-| `Commands::Validate { password }` | Call `validate_strength` and `check_common_patterns`, print results |
+| Match arm | What to print |
+|-----------|---------------|
+| `Commands::Random { length, symbols }` | `Generated password: <password>`, then `Entropy: <bits> bits` using `calculate_entropy` |
+| `Commands::Passphrase { words, separator }` | `Generated passphrase: <passphrase>` |
+| `Commands::Pin { length }` | `Generated PIN: <pin>` |
+| `Commands::Validate { password }` | `Password strength: <strength>` and `Entropy: <bits> bits`; if `check_common_patterns` returns `true`, also a line starting with `Warning:` |
+
+The integration tests in `tests/cli.rs` run the program and check these line prefixes, so match them exactly.
 
 Test the CLI once implemented:
 
